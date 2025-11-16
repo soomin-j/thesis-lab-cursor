@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilantro Sniff Test 🧄</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧄 Cilantro Sniff Test 🧄</h1>
+            <p class="subtitle">Can you sniff out which dishes contain cilantro?</p>
+        </header>
+
+        <div class="game-stats">
+            <div class="stat">
+                <span class="stat-label">Score</span>
+                <span class="stat-value" id="score">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Streak</span>
+                <span class="stat-value" id="streak">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Round</span>
+                <span class="stat-value" id="round">1</span>
+            </div>
+        </div>
+
+        <div class="game-area" id="gameArea">
+            <div class="dish-card" id="dishCard">
+                <div class="dish-icon" id="dishIcon">🍽️</div>
+                <h2 id="dishName">Loading...</h2>
+                <p class="dish-description" id="dishDescription"></p>
+            </div>
+
+            <div class="guess-buttons" id="guessButtons">
+                <button class="btn btn-yes" id="btnYes" onclick="makeGuess(true)">
+                    <span class="btn-icon">✅</span>
+                    <span>Yes, it has cilantro!</span>
+                </button>
+                <button class="btn btn-no" id="btnNo" onclick="makeGuess(false)">
+                    <span class="btn-icon">❌</span>
+                    <span>No cilantro here</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="result-area" id="resultArea" style="display: none;">
+            <div class="result-message" id="resultMessage"></div>
+            <div class="fact-box" id="factBox"></div>
+            <button class="btn btn-next" id="btnNext" onclick="nextRound()">
+                Next Dish →
+            </button>
+        </div>
+
+        <div class="game-over" id="gameOver" style="display: none;">
+            <h2>Game Over!</h2>
+            <div class="final-stats">
+                <p>Final Score: <span id="finalScore">0</span> / <span id="totalRounds">0</span></p>
+                <p>Best Streak: <span id="bestStreak">0</span></p>
+            </div>
+            <div class="recommendations-section" id="restaurantRecommendations">
+                <!-- Recommendations will be inserted here -->
+            </div>
+            <button class="btn btn-restart" onclick="restartGame()">
+                Play Again 🔄
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

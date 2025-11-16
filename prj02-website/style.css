@@ -1,0 +1,390 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 100%;
+    padding: 30px;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.1em;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 15px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-value {
+    display: block;
+    color: #667eea;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.dish-card {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.dish-card:hover {
+    transform: scale(1.02);
+}
+
+.dish-icon {
+    font-size: 5em;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.dish-card h2 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.dish-description {
+    color: #555;
+    font-size: 1.1em;
+    font-style: italic;
+}
+
+.guess-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    flex: 1;
+    padding: 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    color: #333;
+}
+
+.btn-no {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: #333;
+}
+
+.btn-next {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-restart {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-icon {
+    font-size: 1.5em;
+}
+
+.result-area {
+    text-align: center;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.result-message {
+    font-size: 1.8em;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.result-correct {
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    color: #2d3436;
+}
+
+.result-incorrect {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: #2d3436;
+}
+
+.fact-box {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border-left: 4px solid #667eea;
+}
+
+.fact-box p {
+    color: #555;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.game-over {
+    text-align: center;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.game-over h2 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.final-stats {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.final-stats p {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.final-stats span {
+    color: #667eea;
+    font-weight: bold;
+}
+
+.recommendations-section {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.recommendations-section h3 {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.recommendations-intro {
+    color: #666;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    text-align: center;
+    font-style: italic;
+}
+
+.recommendation-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.recommendation-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.recommendation-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.cuisine-emoji {
+    font-size: 2em;
+}
+
+.recommendation-header h4 {
+    color: #333;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.recommendation-dishes {
+    color: #555;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.recommendation-dishes strong {
+    color: #667eea;
+}
+
+.restaurant-list {
+    margin-top: 15px;
+}
+
+.restaurant-label {
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.restaurant-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.restaurant-list li {
+    background: white;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    color: #333;
+    font-size: 1em;
+    border-left: 4px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.restaurant-list li:hover {
+    background: #667eea;
+    color: white;
+    transform: translateX(5px);
+}
+
+.no-recommendations {
+    color: #666;
+    font-size: 1.1em;
+    text-align: center;
+    font-style: italic;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border-left: 4px solid #667eea;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .guess-buttons {
+        flex-direction: column;
+    }
+
+    .dish-icon {
+        font-size: 4em;
+    }
+
+    .dish-card h2 {
+        font-size: 1.5em;
+    }
+}
+
