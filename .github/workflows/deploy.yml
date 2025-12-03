@@ -1,0 +1,46 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'mvp-sensorymap/web/**'
+      - '.github/workflows/deploy.yml'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: |
+          cd mvp-sensorymap/web
+          npm ci
+          
+      - name: Build
+        run: |
+          cd mvp-sensorymap/web
+          npm run build
+          
+      - name: Deploy to docs folder
+        run: |
+          rm -rf docs
+          cp -r mvp-sensorymap/web/dist docs
+          
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs
+          git diff --staged --quiet || git commit -m "Deploy web app to docs folder"
+          git push
+

@@ -111,7 +111,7 @@ export default function AmbientGradientOverlay({
         return acc;
       }, {} as Record<string, number>);
 
-      const dominantCategory = Object.entries(categoryCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || 'neutral';
+      const dominantCategory = ((Object.entries(categoryCounts) as [string, number][]).sort((a, b) => b[1] - a[1])[0]?.[0]) || 'neutral';
       
       // Enhanced intensity calculation considering recency and consistency
       const now = Date.now();

@@ -33,7 +33,7 @@ export default function ColorZoneOverlay({ sensoryLogs, locationPoints }: ColorZ
       return acc;
     }, {} as Record<string, number>);
 
-    const dominantCategory = Object.entries(categoryCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || 'neutral';
+    const dominantCategory = ((Object.entries(categoryCounts) as [string, number][]).sort((a, b) => b[1] - a[1])[0]?.[0]) || 'neutral';
 
     // Calculate intensity based on number of logs and consistency
     const logCount = emotions.length;

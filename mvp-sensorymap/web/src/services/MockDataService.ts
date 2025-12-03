@@ -260,15 +260,15 @@ export class MockDataService {
     return MOCK_PREDICTION;
   }
 
-  static async extractTags(photoUri?: string | null, description?: string) {
+  static async extractTags(photoUri?: string | null, description?: string): Promise<{ emotionTags: EmotionTag[]; sensoryTags: SensoryTag[] }> {
     await delay(1000);
     return {
       emotionTags: [
-        { id: 'thoughtful', emoji: '🤔', label: 'Thoughtful', category: 'neutral' },
+        { id: 'thoughtful', emoji: '🤔', label: 'Thoughtful', category: 'neutral' as const },
       ],
       sensoryTags: [
-        { id: 'music', emoji: '🎵', label: 'Music', category: 'sound' },
-        { id: 'warm-light', emoji: '💡', label: 'Warm Light', category: 'light' },
+        { id: 'music', emoji: '🎵', label: 'Music', category: 'sound' as const },
+        { id: 'warm-light', emoji: '💡', label: 'Warm Light', category: 'light' as const },
       ],
     };
   }
@@ -277,10 +277,11 @@ export class MockDataService {
     await delay(500);
     
     // Create a new location point if latitude/longitude are provided
-    let locationId = 'loc-1'; // Default fallback
+    let locationId: string = 'loc-1'; // Default fallback
     if (data.latitude !== undefined && data.longitude !== undefined) {
+      const newLocationPointId = `loc-${Date.now()}`;
       const newLocationPoint: LocationPoint = {
-        id: `loc-${Date.now()}`,
+        id: newLocationPointId,
         latitude: data.latitude,
         longitude: data.longitude,
         timestamp: new Date(),
@@ -288,7 +289,7 @@ export class MockDataService {
       };
       MOCK_LOCATION_POINTS.push(newLocationPoint);
       MOCK_ALL_LOCATION_POINTS.push(newLocationPoint);
-      locationId = newLocationPoint.id;
+      locationId = newLocationPointId;
     }
     
     const newLog: SensoryLog = {
