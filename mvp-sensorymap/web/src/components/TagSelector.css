@@ -1,0 +1,70 @@
+.tag-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.tag-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tag-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tag-section .section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.tag:hover {
+  border-color: #007AFF;
+}
+
+.tag.selected {
+  background: #007AFF;
+  border-color: #007AFF;
+  color: white;
+}
+
+.tag-emoji {
+  font-size: 20px;
+}
+
+.tag-label {
+  font-size: 14px;
+}
+

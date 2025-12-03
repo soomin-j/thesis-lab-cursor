@@ -1,0 +1,59 @@
+.sensory-layer-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sensory-controls-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8B9DC3;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sensory-controls-buttons {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.sensory-control-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 197, 224, 0.4);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #5A4A6A;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.sensory-control-button:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.sensory-control-button.active {
+  color: #5A4A6A;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-width: 2px;
+}
+
+.sensory-control-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.sensory-control-text {
+  font-size: 11px;
+  white-space: nowrap;
+}
+

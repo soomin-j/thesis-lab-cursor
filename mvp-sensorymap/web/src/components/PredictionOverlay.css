@@ -1,0 +1,146 @@
+.overlay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(212, 197, 224, 0.2);
+}
+
+.overlay-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+  color: #5A4A6A;
+  letter-spacing: -0.3px;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #8B9DC3;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.close-button:hover {
+  color: #5A4A6A;
+}
+
+.loading {
+  padding: 40px;
+  text-align: center;
+  color: #8B9DC3;
+}
+
+.prediction-content {
+  padding: 20px;
+}
+
+.prediction-box {
+  background: linear-gradient(135deg, rgba(248, 249, 251, 0.8) 0%, rgba(240, 244, 248, 0.8) 100%);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(212, 197, 224, 0.3);
+}
+
+.prediction-text {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  color: #4A5568;
+  font-weight: 400;
+}
+
+.confidence-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.confidence-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.confidence-text {
+  font-size: 12px;
+  color: #666;
+}
+
+.prediction-section {
+  margin-bottom: 24px;
+}
+
+.prediction-section h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 14px;
+  color: #5A4A6A;
+  letter-spacing: 0.2px;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 10px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(212, 197, 224, 0.3);
+  transition: all 0.2s;
+}
+
+.tag:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(212, 197, 224, 0.5);
+}
+
+.tag-text {
+  font-size: 14px;
+  color: #4A5568;
+}
+
+.category-text {
+  font-size: 12px;
+  color: #8B9DC3;
+}
+
+.probability-text {
+  font-size: 12px;
+  color: #9B7FB8;
+  font-weight: 600;
+}
+
+.suggestion-box {
+  background: rgba(168, 213, 186, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(127, 184, 161, 0.3);
+}
+
+.suggestion-box p {
+  margin: 0;
+  font-size: 14px;
+  color: #4A6B5A;
+  line-height: 1.6;
+}
+

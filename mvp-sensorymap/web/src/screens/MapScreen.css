@@ -1,0 +1,413 @@
+.map-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f5 50%, #f5f0f8 100%);
+}
+
+/* Search Bar */
+.map-search-bar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 14px 18px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+  max-width: 600px;
+  transition: all 0.3s ease;
+}
+
+.map-search-bar:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+.search-icon {
+  font-size: 18px;
+  color: #8B9DC3;
+  opacity: 0.7;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: #4A5568;
+  background: transparent;
+  font-weight: 400;
+}
+
+.search-input::placeholder {
+  color: #A0AEC0;
+  font-weight: 300;
+}
+
+.search-check {
+  font-size: 18px;
+  color: #A8D5BA;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.search-check:hover {
+  opacity: 1;
+}
+
+/* Floating Action Button */
+.fab-add-feeling {
+  position: absolute;
+  bottom: 100px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #D4C5E0 0%, #C4B0D4 100%);
+  color: #5A4A6A;
+  border: none;
+  border-radius: 32px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(212, 197, 224, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.5);
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.fab-add-feeling:hover {
+  background: linear-gradient(135deg, #C4B0D4 0%, #B8A0C8 100%);
+  box-shadow: 0 8px 24px rgba(212, 197, 224, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.6);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.fab-add-feeling.selecting {
+  background: linear-gradient(135deg, rgba(168, 213, 186, 0.95) 0%, rgba(152, 203, 170, 0.95) 100%);
+  color: #4A6A5A;
+  animation: pulse-fab 2s ease-in-out infinite;
+}
+
+.fab-icon {
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.fab-label {
+  font-size: 15px;
+}
+
+/* Time Filter Panel */
+.time-filter-panel {
+  position: absolute;
+  top: 80px;
+  left: 24px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 197, 224, 0.4);
+  border-radius: 16px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  max-width: 400px;
+}
+
+/* Sensory Controls Panel */
+.sensory-controls-panel {
+  position: absolute;
+  top: 180px;
+  left: 24px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 197, 224, 0.4);
+  border-radius: 16px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  max-width: 400px;
+}
+
+/* Map View Controls */
+.map-view-controls {
+  position: absolute;
+  top: 80px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.map-control-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 197, 224, 0.4);
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #5A4A6A;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.map-control-button:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(212, 197, 224, 0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.map-control-button.active {
+  background: linear-gradient(135deg, rgba(212, 197, 224, 0.3) 0%, rgba(196, 176, 212, 0.3) 100%);
+  border-color: rgba(212, 197, 224, 0.6);
+  color: #5A4A6A;
+}
+
+.control-icon {
+  font-size: 18px;
+}
+
+.control-label {
+  font-size: 13px;
+}
+
+/* Location Selection Hint */
+.location-selection-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  pointer-events: none;
+  animation: fade-in-hint 0.3s ease-out;
+}
+
+.hint-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 248, 248, 0.98) 100%);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(168, 213, 186, 0.5);
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.hint-icon {
+  font-size: 24px;
+  animation: bounce-hint 2s ease-in-out infinite;
+}
+
+.hint-text {
+  font-size: 15px;
+  font-weight: 500;
+  color: #5A4A6A;
+  letter-spacing: -0.2px;
+}
+
+@keyframes fade-in-hint {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes bounce-hint {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-fab {
+  0%, 100% {
+    box-shadow: 0 4px 16px rgba(168, 213, 186, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 24px rgba(168, 213, 186, 0.5), 0 0 0 8px rgba(168, 213, 186, 0.1);
+  }
+}
+
+@keyframes pulse-selection {
+  0%, 100% {
+    box-shadow: 0 0 0 8px rgba(168, 213, 186, 0.3), 0 0 0 16px rgba(168, 213, 186, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(168, 213, 186, 0.4), 0 0 0 24px rgba(168, 213, 186, 0.15);
+  }
+}
+
+.map-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.map-button {
+  padding: 14px 26px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  color: #5A4A6A;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 28px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.2px;
+}
+
+.map-button:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  border-color: rgba(212, 197, 224, 0.5);
+}
+
+/* Custom map styles - calm and ambient */
+.map-screen :global(.leaflet-container) {
+  background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f5 50%, #f5f0f8 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.map-screen :global(.leaflet-popup-content-wrapper) {
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 197, 224, 0.3);
+  padding: 0;
+}
+
+.map-screen :global(.leaflet-popup-content) {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: #4A5568;
+  line-height: 1.6;
+}
+
+.map-screen :global(.leaflet-popup-tip) {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(212, 197, 224, 0.3);
+}
+
+.emotion-pin-popup-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.map-screen :global(.emotion-pin-popup-wrapper .leaflet-popup-content-wrapper) {
+  padding: 0;
+}
+
+.map-screen :global(.emotion-pin-popup-wrapper .leaflet-popup-content) {
+  margin: 0;
+  padding: 0;
+}
+
+/* Path styling with soft colors */
+.map-screen :global(.leaflet-interactive) {
+  stroke-opacity: 0.6;
+}
+
+/* Current Location Pulse Animation - soft and ambient */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+.current-location-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Color zones overlay for emotional resonance */
+.emotion-zone-positive {
+  background: rgba(168, 213, 186, 0.15);
+  border: 2px dashed rgba(127, 184, 161, 0.3);
+  border-radius: 50%;
+}
+
+.emotion-zone-negative {
+  background: rgba(232, 180, 184, 0.15);
+  border: 2px dashed rgba(216, 155, 160, 0.3);
+  border-radius: 50%;
+}
+
+.emotion-zone-neutral {
+  background: rgba(212, 197, 224, 0.15);
+  border: 2px dashed rgba(196, 176, 212, 0.3);
+  border-radius: 50%;
+}
+
+/* High-intensity zone breathing animation */
+@keyframes breathe {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.map-screen :global(.high-intensity-zone) {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+/* Enhanced visual effects for ambient overlays */
+.map-screen :global(.leaflet-container) {
+  position: relative;
+}
+
+.map-screen :global(.leaflet-container::before) {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(184, 212, 227, 0.05) 0%, transparent 70%);
+  z-index: 1;
+  mix-blend-mode: multiply;
+}
+

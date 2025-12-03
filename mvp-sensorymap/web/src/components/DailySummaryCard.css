@@ -1,0 +1,111 @@
+.summary-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.summary-date {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 16px;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007AFF;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.summary-section {
+  margin-top: 16px;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.emotion-tag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #f0f0f0;
+  padding: 8px;
+  border-radius: 16px;
+}
+
+.emotion-emoji {
+  font-size: 20px;
+}
+
+.emotion-label {
+  font-size: 14px;
+}
+
+.emotion-count {
+  font-size: 12px;
+  color: #666;
+}
+
+.zone-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.zone {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.zone-positive {
+  background: #E8F5E9;
+}
+
+.zone-neutral {
+  background: #F5F5F5;
+}
+
+.zone-negative {
+  background: #FFEBEE;
+}
+
+.zone-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.zone-value {
+  font-size: 16px;
+  font-weight: 600;
+}
+
