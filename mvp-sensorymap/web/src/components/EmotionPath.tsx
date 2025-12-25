@@ -80,3 +80,4 @@ export default function EmotionPath({ locationPoints, sensoryLogs }: EmotionPath
   );
 }
 
+

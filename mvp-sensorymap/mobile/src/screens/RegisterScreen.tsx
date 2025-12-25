@@ -37,7 +37,17 @@ export default function RegisterScreen({ navigation }: any) {
     try {
       await register(email, password);
     } catch (error: any) {
-      Alert.alert('Registration Failed', error.response?.data?.error || 'An error occurred');
+      let errorMessage = 'An error occurred';
+      if (error.code === 'auth/email-already-in-use') {
+        errorMessage = 'This email is already registered';
+      } else if (error.code === 'auth/invalid-email') {
+        errorMessage = 'Invalid email address';
+      } else if (error.code === 'auth/weak-password') {
+        errorMessage = 'Password is too weak';
+      } else if (error.message) {
+        errorMessage = error.message;
+      }
+      Alert.alert('Registration Failed', errorMessage);
     } finally {
       setLoading(false);
     }

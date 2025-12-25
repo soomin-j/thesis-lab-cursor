@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useMap } from 'react-leaflet';
 import { SensoryLog, LocationPoint, SensoryTag } from '../types';
 
-export type SensoryCategory = 'sound' | 'light' | 'air' | 'smell' | 'space' | 'all';
+export type SensoryCategory = 'sound' | 'light' | 'air' | 'smell' | 'space' | 'taste' | 'touch' | 'all';
 
 interface SensoryHeatmapOverlayProps {
   sensoryLogs: SensoryLog[];
@@ -94,6 +94,16 @@ export default function SensoryHeatmapOverlay({
             low: 'rgba(200, 220, 180, 0.3)', // Soft green (nature)
             high: 'rgba(150, 120, 100, 0.6)', // Brown (pollution)
           };
+        case 'taste':
+          return {
+             low: 'rgba(255, 182, 193, 0.3)', // Light Pink (Sweet)
+             high: 'rgba(139, 69, 19, 0.6)', // Saddle Brown (Bitter)
+          };
+        case 'touch':
+           return {
+             low: 'rgba(255, 228, 196, 0.3)', // Bisque (Soft)
+             high: 'rgba(128, 128, 128, 0.6)', // Gray (Rough)
+           };
         case 'space':
           return {
             low: 'rgba(220, 200, 240, 0.3)', // Soft purple (spacious)
@@ -181,4 +191,5 @@ export default function SensoryHeatmapOverlay({
 
   return null;
 }
+
 

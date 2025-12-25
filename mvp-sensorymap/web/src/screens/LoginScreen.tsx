@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useAuth } from '../store/AuthContext';
 import './LoginScreen.css';
 
-export default function LoginScreen() {
+export default function LoginScreen({ onRegister }: { onRegister?: () => void }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const { login } = useAuth();
+  const { login, isDemoMode } = useAuth();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,7 +19,17 @@ export default function LoginScreen() {
     try {
       await login(email, password);
     } catch (error: any) {
-      alert('Login Failed: ' + (error.message || 'An error occurred'));
+      let errorMessage = 'An error occurred';
+      if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+        errorMessage = 'Invalid email or password';
+      } else if (error.code === 'auth/invalid-email') {
+        errorMessage = 'Invalid email address';
+      } else if (error.code === 'auth/too-many-requests') {
+        errorMessage = 'Too many failed attempts. Please try again later';
+      } else if (error.message) {
+        errorMessage = error.message;
+      }
+      alert('Login Failed: ' + errorMessage);
     } finally {
       setLoading(false);
     }
@@ -55,7 +65,31 @@ export default function LoginScreen() {
           </button>
         </form>
 
-        <p className="login-demo">Demo: Use any email/password to login</p>
+        <p className="login-help">
+          {isDemoMode ? (
+            <>Demo Mode: Register first, then login with your credentials</>
+          ) : (
+            <>Sign in with your Firebase account</>
+          )}
+        </p>
+
+        {onRegister && (
+          <button
+            type="button"
+            onClick={onRegister}
+            style={{
+              marginTop: '16px',
+              background: 'transparent',
+              border: 'none',
+              color: '#007AFF',
+              cursor: 'pointer',
+              textDecoration: 'underline',
+              fontSize: '14px',
+            }}
+          >
+            Don't have an account? Sign up
+          </button>
+        )}
       </div>
     </div>
   );

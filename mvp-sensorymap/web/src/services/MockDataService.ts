@@ -298,6 +298,7 @@ export class MockDataService {
       location_id: locationId,
       timestamp: new Date(),
       description: data.description,
+      photo_url: data.photoUrl,
       emotion_tags: typeof data.emotionTags === 'string' ? JSON.parse(data.emotionTags) : data.emotionTags || [],
       sensory_tags: typeof data.sensoryTags === 'string' ? JSON.parse(data.sensoryTags) : data.sensoryTags || [],
       ai_extracted: false,

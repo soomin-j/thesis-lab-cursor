@@ -9,7 +9,7 @@ export interface SensoryTag {
   id: string;
   emoji: string;
   label: string;
-  category: 'sound' | 'light' | 'air' | 'smell' | 'space';
+  category: 'sound' | 'light' | 'air' | 'smell' | 'space' | 'taste' | 'touch';
 }
 
 export interface LocationPoint {
@@ -67,5 +67,9 @@ export const SENSORY_TAGS: SensoryTag[] = [
   { id: 'spacious', emoji: '🏞️', label: 'Spacious', category: 'space' },
   { id: 'familiar', emoji: '🏠', label: 'Familiar', category: 'space' },
   { id: 'closed-in', emoji: '🏢', label: 'Closed-in', category: 'space' },
+  { id: 'sweet', emoji: '🍬', label: 'Sweet', category: 'taste' },
+  { id: 'bitter', emoji: '🍫', label: 'Bitter', category: 'taste' },
+  { id: 'soft', emoji: '🧸', label: 'Soft', category: 'touch' },
+  { id: 'rough', emoji: '🧱', label: 'Rough', category: 'touch' },
 ];
 

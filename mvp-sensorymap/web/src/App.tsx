@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { AuthProvider, useAuth } from './store/AuthContext';
 import MapScreen from './screens/MapScreen';
-import LogScreen from './screens/LogScreen';
 import HistoryScreen from './screens/HistoryScreen';
 import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
 import './App.css';
 
 function AppContent() {
   const { user, loading } = useAuth();
-  const [currentScreen, setCurrentScreen] = useState<'map' | 'log' | 'history'>('map');
+  const [currentScreen, setCurrentScreen] = useState<'map' | 'history'>('map');
+  const [authScreen, setAuthScreen] = useState<'login' | 'register'>('login');
   const [mapRefreshKey, setMapRefreshKey] = useState(0);
 
   if (loading) {
@@ -20,7 +21,10 @@ function AppContent() {
   }
 
   if (!user) {
-    return <LoginScreen />;
+    if (authScreen === 'register') {
+      return <RegisterScreen onBack={() => setAuthScreen('login')} />;
+    }
+    return <LoginScreen onRegister={() => setAuthScreen('register')} />;
   }
 
   return (
@@ -39,12 +43,6 @@ function AppContent() {
             Map
           </button>
           <button
-            className={currentScreen === 'log' ? 'active' : ''}
-            onClick={() => setCurrentScreen('log')}
-          >
-            Log
-          </button>
-          <button
             className={currentScreen === 'history' ? 'active' : ''}
             onClick={() => setCurrentScreen('history')}
           >
@@ -54,7 +52,6 @@ function AppContent() {
       </nav>
       <main className="main-content">
         {currentScreen === 'map' && <MapScreen key={mapRefreshKey} />}
-        {currentScreen === 'log' && <LogScreen />}
         {currentScreen === 'history' && <HistoryScreen />}
       </main>
     </div>

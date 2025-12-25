@@ -21,7 +21,7 @@
   font-weight: 500;
   color: #5A4A6A;
   letter-spacing: -0.3px;
-  background: linear-gradient(135deg, #D4C5E0 0%, #B8D4E3 100%);
+  background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -46,12 +46,12 @@
 }
 
 .nav-tabs button:hover {
-  color: #D4C5E0;
+  color: #FF9A9E;
 }
 
 .nav-tabs button.active {
-  color: #9B7FB8;
-  border-bottom-color: #D4C5E0;
+  color: #FF9A9E;
+  border-bottom-color: #FF9A9E;
   font-weight: 500;
 }
 

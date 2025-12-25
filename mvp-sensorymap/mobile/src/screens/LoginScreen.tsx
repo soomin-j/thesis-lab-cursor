@@ -26,7 +26,17 @@ export default function LoginScreen({ navigation }: any) {
     try {
       await login(email, password);
     } catch (error: any) {
-      Alert.alert('Login Failed', error.response?.data?.error || 'An error occurred');
+      let errorMessage = 'An error occurred';
+      if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+        errorMessage = 'Invalid email or password';
+      } else if (error.code === 'auth/invalid-email') {
+        errorMessage = 'Invalid email address';
+      } else if (error.code === 'auth/too-many-requests') {
+        errorMessage = 'Too many failed attempts. Please try again later';
+      } else if (error.message) {
+        errorMessage = error.message;
+      }
+      Alert.alert('Login Failed', errorMessage);
     } finally {
       setLoading(false);
     }

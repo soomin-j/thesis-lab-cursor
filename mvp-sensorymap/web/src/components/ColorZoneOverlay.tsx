@@ -43,7 +43,7 @@ export default function ColorZoneOverlay({ sensoryLogs, locationPoints }: ColorZ
     return {
       position: [location.latitude, location.longitude] as [number, number],
       category: dominantCategory,
-      radius: 100 + (intensity * 50), // 100-150 meters based on intensity
+      radius: 120 + (intensity * 50), // 120-170 meters based on intensity
       intensity: intensity,
     };
   });
@@ -54,33 +54,45 @@ export default function ColorZoneOverlay({ sensoryLogs, locationPoints }: ColorZ
         const getColor = () => {
           switch (zone.category) {
             case 'positive':
-              return 'rgba(168, 213, 186, 0.2)';
+              return 'rgba(168, 213, 186, 0.8)';
             case 'negative':
-              return 'rgba(232, 180, 184, 0.2)';
+              return 'rgba(232, 180, 184, 0.8)';
             case 'neutral':
-              return 'rgba(212, 197, 224, 0.2)';
+              return 'rgba(212, 197, 224, 0.8)';
+            case 'calm':
+              return 'rgba(173, 216, 230, 0.8)'; // Light Blue
+            case 'excited':
+              return 'rgba(255, 165, 0, 0.8)'; // Orange
+            case 'anxious':
+              return 'rgba(221, 160, 221, 0.8)'; // Plum
             default:
-              return 'rgba(184, 212, 227, 0.2)';
+              return 'rgba(184, 212, 227, 0.8)';
           }
         };
 
         const getBorderColor = () => {
           switch (zone.category) {
             case 'positive':
-              return 'rgba(127, 184, 161, 0.4)';
+              return 'rgba(127, 184, 161, 0.9)';
             case 'negative':
-              return 'rgba(216, 155, 160, 0.4)';
+              return 'rgba(216, 155, 160, 0.9)';
             case 'neutral':
-              return 'rgba(196, 176, 212, 0.4)';
+              return 'rgba(196, 176, 212, 0.9)';
+            case 'calm':
+              return 'rgba(135, 206, 235, 0.9)';
+            case 'excited':
+              return 'rgba(255, 140, 0, 0.9)';
+            case 'anxious':
+              return 'rgba(221, 160, 221, 0.9)';
             default:
-              return 'rgba(159, 196, 211, 0.4)';
+              return 'rgba(159, 196, 211, 0.9)';
           }
         };
 
         // Enhanced opacity and size based on intensity
-        const fillOpacity = 0.25 + (zone.intensity * 0.2); // 0.25-0.45
-        const borderOpacity = 0.4 + (zone.intensity * 0.3); // 0.4-0.7
-        const borderWeight = 2 + (zone.intensity * 1.5); // 2-3.5
+        const fillOpacity = 0.7 + (zone.intensity * 0.2); // 0.7-0.9
+        const borderOpacity = 0.9; // Solid border
+        const borderWeight = 1; // 1px fixed border width
 
         // Add pulsing animation for high-intensity zones
         const isHighIntensity = zone.intensity > 0.7;

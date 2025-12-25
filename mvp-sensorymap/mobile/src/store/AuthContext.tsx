@@ -16,46 +16,42 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    loadUser();
+    const unsubscribe = AuthService.onAuthStateChanged((currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
   }, []);
 
-  const loadUser = async () => {
+  const login = async (email: string, password: string) => {
     try {
-      const currentUser = await AuthService.getCurrentUser();
-      if (currentUser) {
-        setUser(currentUser);
-      } else {
-        // Auto-login with mock user for demo
-        const { user } = await AuthService.login('demo@sensescape.com', 'demo');
-        setUser(user);
-      }
-    } catch (error) {
-      console.error('Error loading user:', error);
-      // Still try to set mock user for demo
-      try {
-        const { user } = await AuthService.login('demo@sensescape.com', 'demo');
-        setUser(user);
-      } catch (e) {
-        // Ignore
-      }
-    } finally {
-      setLoading(false);
+      await AuthService.login(email, password);
+      // User state will be updated via onAuthStateChanged
+    } catch (error: any) {
+      console.error('Login error:', error);
+      throw error;
     }
   };
 
-  const login = async (email: string, password: string) => {
-    const { user } = await AuthService.login(email, password);
-    setUser(user);
-  };
-
   const register = async (email: string, password: string) => {
-    const { user } = await AuthService.register(email, password);
-    setUser(user);
+    try {
+      await AuthService.register(email, password);
+      // User state will be updated via onAuthStateChanged
+    } catch (error: any) {
+      console.error('Registration error:', error);
+      throw error;
+    }
   };
 
   const logout = async () => {
-    await AuthService.logout();
-    setUser(null);
+    try {
+      await AuthService.logout();
+      // User state will be updated via onAuthStateChanged
+    } catch (error: any) {
+      console.error('Logout error:', error);
+      throw error;
+    }
   };
 
   return (

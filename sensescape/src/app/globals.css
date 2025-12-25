@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #334155;
+  
+  /* Default/Neutral Mood */
+  --mood-bg: #f0fdf4; /* mint-50 */
+  --mood-primary: #86efac; /* green-300 */
+  --mood-text: #14532d; /* green-900 */
+  --mood-accent: #22c55e; /* green-500 */
+}
+
+/* Mood Themes */
+[data-mood="anxious"] {
+  /* Calming: Cool Blues & Soft Greens */
+  --mood-bg: #f0f9ff; /* sky-50 */
+  --mood-primary: #7dd3fc; /* sky-300 */
+  --mood-text: #0c4a6e; /* sky-900 */
+  --mood-accent: #0ea5e9; /* sky-500 */
+}
+
+[data-mood="overwhelmed"] {
+  /* Grounding: Earth Tones */
+  --mood-bg: #fafaf9; /* stone-50 */
+  --mood-primary: #d6d3d1; /* stone-300 */
+  --mood-text: #44403c; /* stone-700 */
+  --mood-accent: #78716c; /* stone-500 */
+}
+
+[data-mood="energetic"] {
+  /* Vibrant: Orange/Yellow */
+  --mood-bg: #fff7ed; /* orange-50 */
+  --mood-primary: #fdba74; /* orange-300 */
+  --mood-text: #7c2d12; /* orange-900 */
+  --mood-accent: #f97316; /* orange-500 */
+}
+
+[data-mood="melancholic"] {
+  /* Cozy/Uplifting: Soft Pink/Warm Grey */
+  --mood-bg: #fff1f2; /* rose-50 */
+  --mood-primary: #fda4af; /* rose-300 */
+  --mood-text: #881337; /* rose-900 */
+  --mood-accent: #e11d48; /* rose-500 */
+}
+
+[data-mood="bored"] {
+  /* Stimulating: Purple/Teal */
+  --mood-bg: #f5f3ff; /* violet-50 */
+  --mood-primary: #c4b5fd; /* violet-300 */
+  --mood-text: #4c1d95; /* violet-900 */
+  --mood-accent: #7c3aed; /* violet-600 */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-mood-bg: var(--mood-bg);
+  --color-mood-primary: var(--mood-primary);
+  --color-mood-text: var(--mood-text);
+  --color-mood-accent: var(--mood-accent);
+}
+
+body {
+  background: var(--mood-bg);
+  color: var(--mood-text);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+.animate-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
